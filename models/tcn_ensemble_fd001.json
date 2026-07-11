@@ -1,0 +1,7 @@
+{
+  "test_rmse": 14.649652481079102,
+  "test_nasa_score": 409.3598327636719,
+  "test_late_predictions": 55,
+  "single_model_mean": 16.03515911102295,
+  "single_model_std": 0.8782932578649253
+}

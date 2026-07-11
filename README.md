@@ -64,8 +64,8 @@ AGENTIC MAINTENANCE ENGINEER (LangGraph ReAct)
 ## Roadmap
 
 - [x] **Phase 0 — Data + first look**: FD001 loaded and characterized; flat sensors measured (7 conventional + 2 borderline); single-condition confirmed; degradation visual
-- [ ] **Phase 1 — Honest baseline**: capped RUL labels, rolled-window features, split by engine, LightGBM → RMSE + asymmetric NASA score
-- [ ] **Phase 2 — Deep model**: Temporal CNN on raw sequences vs the baseline, same split, published numbers alongside
+- [x] **Phase 1 — Honest baseline**: capped RUL labels, rolled-window features, split by engine, LightGBM → RMSE + asymmetric NASA score
+- [x] **Phase 2 — Deep model**: Temporal CNN (dilated Conv1d, 57K params, 68s on MPS) — **test RMSE 12.66 vs 14.98 baseline (−15%)**, NASA score 264 vs 338; in the published deep band (12–14). First attempt lost (15.44) — fixed with window 40, dilation 16, and an age channel
 - [ ] **Phase 3 — Uncertainty**: quantile RUL (p10/p50/p90) + measured calibration (interval coverage)
 - [ ] **Phase 4 — Operating point**: lead time at fixed false-alarm rate → € framing
 - [ ] **Phase 5 — FD004**: six operating conditions, two fault modes; per-condition normalization

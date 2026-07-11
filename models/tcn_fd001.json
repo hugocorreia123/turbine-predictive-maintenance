@@ -1,6 +1,6 @@
 {
-  "val_rmse": 14.94897747039795,
-  "test_rmse": 15.436098098754883,
-  "test_nasa_score": 603.4313354492188,
-  "test_late_predictions": 56
+  "val_rmse": 16.06543731689453,
+  "test_rmse": 15.799606323242188,
+  "test_nasa_score": 470.69696044921875,
+  "test_late_predictions": 51
 }

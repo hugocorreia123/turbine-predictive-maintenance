@@ -1,0 +1,10 @@
+{
+  "test_rmse_p50": 15.269768714904785,
+  "test_nasa_score_p50": 713.672607421875,
+  "test_coverage_raw": 0.62,
+  "val_coverage_raw": 0.6775498410863913,
+  "conformal_adjustment": 2.5452499389648438,
+  "test_coverage_conformal": 0.76,
+  "mean_interval_width_raw": 23.883316040039062,
+  "mean_interval_width_conformal": 28.973814010620117
+}

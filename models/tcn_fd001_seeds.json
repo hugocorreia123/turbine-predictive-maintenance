@@ -1,0 +1,32 @@
+{
+  "42": {
+    "val_rmse": 14.871665000915527,
+    "test_rmse": 16.974979400634766,
+    "test_nasa_score": 701.1210327148438,
+    "test_late_predictions": 59
+  },
+  "43": {
+    "val_rmse": 13.467604637145996,
+    "test_rmse": 15.37804126739502,
+    "test_nasa_score": 450.2156982421875,
+    "test_late_predictions": 56
+  },
+  "44": {
+    "val_rmse": 16.75287437438965,
+    "test_rmse": 16.93730926513672,
+    "test_nasa_score": 635.4137573242188,
+    "test_late_predictions": 56
+  },
+  "45": {
+    "val_rmse": 15.222182273864746,
+    "test_rmse": 15.085859298706055,
+    "test_nasa_score": 359.465576171875,
+    "test_late_predictions": 58
+  },
+  "46": {
+    "val_rmse": 16.06543731689453,
+    "test_rmse": 15.799606323242188,
+    "test_nasa_score": 470.69696044921875,
+    "test_late_predictions": 51
+  }
+}
