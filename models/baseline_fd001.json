@@ -1,0 +1,8 @@
+{
+  "best_iteration": 239,
+  "val_rmse": 14.650306363753957,
+  "test_rmse": 14.980936397622,
+  "test_nasa_score": 337.66744859513807,
+  "test_mae": 10.818005500045636,
+  "test_late_predictions": 52
+}
