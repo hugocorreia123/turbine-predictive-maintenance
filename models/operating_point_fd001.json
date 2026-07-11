@@ -1,0 +1,109 @@
+{
+  "horizon": 30,
+  "risk_averse_p10": [
+    {
+      "threshold": 10,
+      "detection": 0.44,
+      "false_alarm_rate": 0.0,
+      "mean_lead_time": 10.545454978942871
+    },
+    {
+      "threshold": 15,
+      "detection": 0.64,
+      "false_alarm_rate": 0.0,
+      "mean_lead_time": 13.5
+    },
+    {
+      "threshold": 20,
+      "detection": 0.88,
+      "false_alarm_rate": 0.02666666666666667,
+      "mean_lead_time": 16.363636016845703
+    },
+    {
+      "threshold": 25,
+      "detection": 0.96,
+      "false_alarm_rate": 0.04,
+      "mean_lead_time": 17.25
+    },
+    {
+      "threshold": 30,
+      "detection": 0.96,
+      "false_alarm_rate": 0.05333333333333334,
+      "mean_lead_time": 17.25
+    },
+    {
+      "threshold": 35,
+      "detection": 1.0,
+      "false_alarm_rate": 0.08,
+      "mean_lead_time": 17.719999313354492
+    },
+    {
+      "threshold": 40,
+      "detection": 1.0,
+      "false_alarm_rate": 0.09333333333333334,
+      "mean_lead_time": 17.719999313354492
+    }
+  ],
+  "point_gbm": [
+    {
+      "threshold": 10,
+      "detection": 0.16,
+      "false_alarm_rate": 0.0,
+      "mean_lead_time": 8.0
+    },
+    {
+      "threshold": 15,
+      "detection": 0.4,
+      "false_alarm_rate": 0.0,
+      "mean_lead_time": 10.199999809265137
+    },
+    {
+      "threshold": 20,
+      "detection": 0.52,
+      "false_alarm_rate": 0.0,
+      "mean_lead_time": 12.15384578704834
+    },
+    {
+      "threshold": 25,
+      "detection": 0.68,
+      "false_alarm_rate": 0.013333333333333334,
+      "mean_lead_time": 13.941176414489746
+    },
+    {
+      "threshold": 30,
+      "detection": 0.84,
+      "false_alarm_rate": 0.013333333333333334,
+      "mean_lead_time": 16.047618865966797
+    },
+    {
+      "threshold": 35,
+      "detection": 1.0,
+      "false_alarm_rate": 0.013333333333333334,
+      "mean_lead_time": 17.719999313354492
+    },
+    {
+      "threshold": 40,
+      "detection": 1.0,
+      "false_alarm_rate": 0.013333333333333334,
+      "mean_lead_time": 17.719999313354492
+    }
+  ],
+  "chosen_p10": {
+    "threshold": 25,
+    "detection": 0.96,
+    "false_alarm_rate": 0.04,
+    "mean_lead_time": 17.25
+  },
+  "chosen_gbm": {
+    "threshold": 35,
+    "detection": 1.0,
+    "false_alarm_rate": 0.013333333333333334,
+    "mean_lead_time": 17.719999313354492
+  },
+  "cost_assumptions": {
+    "unplanned": 250000,
+    "planned": 60000,
+    "inspection": 8000
+  },
+  "illustrative_net_saving_eur": 4536000.0
+}
