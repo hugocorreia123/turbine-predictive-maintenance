@@ -1,0 +1,37 @@
+{
+  "n": 24,
+  "raw_agreement": 0.542,
+  "cohens_kappa": 0.237,
+  "human_dist": {
+    "PARTIALLY_GROUNDED": 15,
+    "GROUNDED": 5,
+    "UNGROUNDED": 4
+  },
+  "judge_dist": {
+    "UNGROUNDED": 10,
+    "PARTIALLY_GROUNDED": 12,
+    "GROUNDED": 2
+  },
+  "confusion_rows_human_cols_judge": [
+    [
+      1,
+      4,
+      0
+    ],
+    [
+      1,
+      8,
+      6
+    ],
+    [
+      0,
+      0,
+      4
+    ]
+  ],
+  "categories": [
+    "GROUNDED",
+    "PARTIALLY_GROUNDED",
+    "UNGROUNDED"
+  ]
+}
