@@ -1,0 +1,17 @@
+{
+  "n": 24,
+  "verdicts": {
+    "UNGROUNDED": 10,
+    "PARTIALLY_GROUNDED": 12,
+    "GROUNDED": 2
+  },
+  "mean_groundedness": 0.333,
+  "issue_taxonomy": {
+    "direction_error": 8,
+    "imprecise_citation": 10,
+    "urgency_policy_violation": 14,
+    "misattributed_citation": 23,
+    "sensor_misnamed": 5,
+    "wrong_value": 3
+  }
+}
