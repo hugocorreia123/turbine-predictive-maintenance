@@ -29,11 +29,9 @@ Unplanned downtime is the canonical industrial-AI cost center: a single offshore
 
 ## Architecture
 
-```
-
 ![Turbine architecture — sensor streams through RUL models, alerting, and the agentic maintenance engineer to human review, with the cited corpus feeding the agent and a cross-family judge validating its output](docs/architecture.png)
 
-```
+Evaluation is cross-family and human-validated (the methodology carried over from [Voyager](...) and [Tracer](...)): a `gpt-oss-120b` judge audits...
 
 **Evaluation is cross-family and human-validated** (the methodology carried over from [Voyager](https://github.com/hugocorreia123/voyager) and [Tracer](https://github.com/hugocorreia123/tracer-aml-graph-intelligence)): a `gpt-oss-120b` judge audits the `qwen3-32b` agent's work orders for groundedness and citation faithfulness, and the judge itself is validated against blind human labels with Cohen's κ.
 
