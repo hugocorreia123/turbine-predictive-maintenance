@@ -63,7 +63,9 @@ for f in sorted(Path("docs_corpus").glob("*.md")):
     doc_id = doc_title.split(" — ")[0]  # e.g. DOC-2
     for m in re.split(r"\n(?=## )", text):
         sec_m = re.match(r"## (§\d+[^\n]*)", m)
-        sec_id = sec_m.group(1).split(" ")[0] if sec_m else "§0"
+        if not sec_m:
+            continue  # skip unlabeled preamble blocks
+        sec_id = sec_m.group(1).split(" ")[0]
         sections.append({"ref": f"{doc_id} {sec_id}",
                          "title": (sec_m.group(1) if sec_m else doc_title),
                          "text": m.strip()})

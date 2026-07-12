@@ -1,0 +1,98 @@
+[
+  {
+    "unit": 24,
+    "band": "dying"
+  },
+  {
+    "unit": 37,
+    "band": "dying"
+  },
+  {
+    "unit": 49,
+    "band": "dying"
+  },
+  {
+    "unit": 56,
+    "band": "dying"
+  },
+  {
+    "unit": 68,
+    "band": "dying"
+  },
+  {
+    "unit": 76,
+    "band": "dying"
+  },
+  {
+    "unit": 81,
+    "band": "dying"
+  },
+  {
+    "unit": 92,
+    "band": "dying"
+  },
+  {
+    "unit": 18,
+    "band": "mid"
+  },
+  {
+    "unit": 27,
+    "band": "mid"
+  },
+  {
+    "unit": 43,
+    "band": "mid"
+  },
+  {
+    "unit": 46,
+    "band": "mid"
+  },
+  {
+    "unit": 52,
+    "band": "mid"
+  },
+  {
+    "unit": 58,
+    "band": "mid"
+  },
+  {
+    "unit": 72,
+    "band": "mid"
+  },
+  {
+    "unit": 94,
+    "band": "mid"
+  },
+  {
+    "unit": 5,
+    "band": "healthy"
+  },
+  {
+    "unit": 6,
+    "band": "healthy"
+  },
+  {
+    "unit": 12,
+    "band": "healthy"
+  },
+  {
+    "unit": 30,
+    "band": "healthy"
+  },
+  {
+    "unit": 48,
+    "band": "healthy"
+  },
+  {
+    "unit": 83,
+    "band": "healthy"
+  },
+  {
+    "unit": 96,
+    "band": "healthy"
+  },
+  {
+    "unit": 99,
+    "band": "healthy"
+  }
+]

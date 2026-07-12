@@ -1,0 +1,368 @@
+{
+  "n_evaluated": 24,
+  "escalation_dying_correct": "8/8",
+  "escalation_healthy_correct": "7/8",
+  "mid_band_recommendations": {
+    "work_order": 6,
+    "monitor": 2
+  },
+  "mode_errors_on_dying": [
+    {
+      "unit": 37,
+      "diagnosis": "Engine 37 shows significant sensor drift in s_14 (-5.06\u03c3), s_13 (4.14\u03c3), and s_8 (3.44\u03c3), with RUL prediction (p50: 24.4 cycles) below the 35-cycle alert threshold."
+    },
+    {
+      "unit": 56,
+      "diagnosis": "Fan-section degradation (fan blade erosion/FOD, leading-edge wear)"
+    },
+    {
+      "unit": 81,
+      "diagnosis": "Fan-section degradation (DOC-2 \u00a72) with multiple sensors indicating fan speed (s_8, s_13), bypass ratio (s_15), and core parameter shifts. RUL predictions indicate imminent failure (p10 RUL=1.1 cycles)."
+    },
+    {
+      "unit": 92,
+      "diagnosis": "Engine unit 92 shows significant drift in multiple sensors (s_12: -3.91\u03c3, s_7: -3.36\u03c3, s_20: -3.26\u03c3) with a predicted RUL of 20.3 cycles (p10 bound 14.9 cycles), breaching the alert threshold."
+    }
+  ],
+  "invalid_citations": [
+    {
+      "unit": 24,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 37,
+      "ref": "DOC-1 \u00a70"
+    },
+    {
+      "unit": 49,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 68,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 76,
+      "ref": "DOC-1 \u00a70"
+    },
+    {
+      "unit": 76,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 18,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 27,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 43,
+      "ref": "DOC-2 \u00a70"
+    },
+    {
+      "unit": 94,
+      "ref": "DOC-1 \u00a70"
+    }
+  ],
+  "confidence_distribution": {
+    "0.92": 10,
+    "0.95": 2,
+    "0.6": 1,
+    "0.75": 4,
+    "0.85": 1,
+    "0.7": 1,
+    "0.65": 3,
+    "0.4": 1,
+    "0.9": 1
+  },
+  "rows": [
+    {
+      "unit": 24,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "HPC degradation (primary FD001 mode) indicated by s_9/s_14 drift and compensatory core speed increases",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-2 \u00a70",
+        "DOC-2 \u00a71",
+        "DOC-1 \u00a72"
+      ]
+    },
+    {
+      "unit": 37,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "Engine 37 shows significant sensor drift in s_14 (-5.06\u03c3), s_13 (4.14\u03c3), and s_8 (3.44\u03c3), with RUL prediction (p50: 24.4 cycles) below the 35-cycle alert threshold.",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a70",
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 49,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "Fan-section degradation (s_8, s_13 drift) with secondary HPC efficiency loss (s_11, s_12 decline). RUL < 35 cycles.",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a71",
+        "DOC-2 \u00a70",
+        "DOC-2 \u00a72"
+      ]
+    },
+    {
+      "unit": 56,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "Fan-section degradation (fan blade erosion/FOD, leading-edge wear)",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 68,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "High-Pressure Compressor (HPC) degradation (primary FD001 mode)",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a71",
+        "DOC-2 \u00a70",
+        "DOC-2 \u00a71",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 76,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70)",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a70",
+        "DOC-2 \u00a70",
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 81,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "Fan-section degradation (DOC-2 \u00a72) with multiple sensors indicating fan speed (s_8, s_13), bypass ratio (s_15), and core parameter shifts. RUL predictions indicate imminent failure (p10 RUL=1.1 cycles).",
+      "confidence": 0.95,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 92,
+      "band": "dying",
+      "rec": "work_order",
+      "diagnosis": "Engine unit 92 shows significant drift in multiple sensors (s_12: -3.91\u03c3, s_7: -3.36\u03c3, s_20: -3.26\u03c3) with a predicted RUL of 20.3 cycles (p10 bound 14.9 cycles), breaching the alert threshold.",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 18,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "Fan-section degradation (s_8, s_13 drift) and HPC efficiency loss (s_12 drift)",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a70",
+        "DOC-2 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 27,
+      "band": "mid",
+      "rec": "monitor",
+      "diagnosis": "Potential HPC degradation with mixed sensor trends",
+      "confidence": 0.6,
+      "citations": [
+        "DOC-1 \u00a71",
+        "DOC-2 \u00a71",
+        "DOC-2 \u00a70",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 43,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70)",
+      "confidence": 0.75,
+      "citations": [
+        "DOC-2 \u00a70",
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 46,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "Fan-section degradation (DOC-2 \u00a72) indicated by s_8, s_13, and s_15 drift",
+      "confidence": 0.85,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 52,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "HPC degradation (DOC-2 \u00a71) indicated by s_9 (+10.3\u03c3), s_14 (+15.4\u03c3), and s_11 (-4.3\u03c3) drift consistent with blade-tip clearance growth and compressor inefficiency",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a71",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 58,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "HPC degradation (DOC-2 \u00a71 signature: s_4\u2191, s_7\u2193, s_11\u2191/s_12\u2193 conflicting with baseline signature)",
+      "confidence": 0.75,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a71",
+        "DOC-3 \u00a73",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 72,
+      "band": "mid",
+      "rec": "monitor",
+      "diagnosis": "HPC degradation (DOC-2 \u00a71) with mixed sensor evidence",
+      "confidence": 0.7,
+      "citations": [
+        "DOC-2 \u00a71",
+        "DOC-2 \u00a73"
+      ]
+    },
+    {
+      "unit": 94,
+      "band": "mid",
+      "rec": "work_order",
+      "diagnosis": "Sensor s_7 shows significant negative drift (-2.56\u03c3) and worsening slope (-0.054\u03c3/cycle), consistent with DOC-1 \u00a70 (T25 temperature sensor degradation). Other sensors show mixed trends but below 2\u03c3 threshold.",
+      "confidence": 0.75,
+      "citations": [
+        "DOC-1 \u00a70",
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 5,
+      "band": "healthy",
+      "rec": "monitor",
+      "diagnosis": "Fan-section degradation possible due to s_8 drift, but signature incomplete",
+      "confidence": 0.65,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-2 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 6,
+      "band": "healthy",
+      "rec": "monitor",
+      "diagnosis": "Sensor s_7 shows mild drift (-1.18\u03c3) with a slight negative slope (-0.016\u03c3/cycle). RUL predictions remain well above the alert threshold.",
+      "confidence": 0.4,
+      "citations": [
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 12,
+      "band": "healthy",
+      "rec": "work_order",
+      "diagnosis": "HPC degradation (primary FD001 mode) indicated by sensor drift and slope patterns consistent with compressor efficiency loss",
+      "confidence": 0.92,
+      "citations": [
+        "DOC-2 \u00a71",
+        "DOC-1 \u00a71",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 30,
+      "band": "healthy",
+      "rec": "monitor",
+      "diagnosis": "HPC degradation (DOC-2 \u00a71) indicated by s_9 (+1.6\u03c3), s_14 (+1.82\u03c3), s_12 (+1.14\u03c3 drift), and s_4 (+1.28\u03c3) consistent with compressor efficiency loss",
+      "confidence": 0.75,
+      "citations": [
+        "DOC-2 \u00a71",
+        "DOC-1 \u00a71"
+      ]
+    },
+    {
+      "unit": 48,
+      "band": "healthy",
+      "rec": "no_action",
+      "diagnosis": "No significant sensor drift detected. Predicted RUL (98.3 cycles p50) exceeds alert threshold (35 cycles).",
+      "confidence": 0.9,
+      "citations": [
+        "DOC-2 \u00a73",
+        "DOC-2 \u00a74"
+      ]
+    },
+    {
+      "unit": 83,
+      "band": "healthy",
+      "rec": "no_action",
+      "diagnosis": "Engine unit 83 shows no significant sensor drift (all sensors within \u00b11.0\u03c3 of baseline) and predicted RUL (110.4 cycles, p50=124.3) well above alert threshold.",
+      "confidence": 0.95,
+      "citations": [
+        "DOC-2 \u00a73",
+        "DOC-2 \u00a74"
+      ]
+    },
+    {
+      "unit": 96,
+      "band": "healthy",
+      "rec": "monitor",
+      "diagnosis": "Slight drift in corrected fan speed (s_13) detected, but RUL remains well above alert threshold.",
+      "confidence": 0.65,
+      "citations": [
+        "DOC-1 \u00a71",
+        "DOC-1 \u00a72",
+        "DOC-3 \u00a75"
+      ]
+    },
+    {
+      "unit": 99,
+      "band": "healthy",
+      "rec": "monitor",
+      "diagnosis": "Early signs of HPC degradation (s_9 and s_14 drift consistent with DOC-2 \u00a71 signature)",
+      "confidence": 0.65,
+      "citations": [
+        "DOC-2 \u00a71",
+        "DOC-1 \u00a72"
+      ]
+    }
+  ]
+}
