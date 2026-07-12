@@ -1,0 +1,34 @@
+{
+  "gbm": {
+    "test_rmse": 15.806078027383434,
+    "test_nasa": 1269.5821096433833
+  },
+  "tcn_per_seed": {
+    "42": {
+      "val_rmse": 14.739399909973145,
+      "test_rmse": 13.500419616699219,
+      "test_nasa": 910.8825073242188,
+      "epochs": 18
+    },
+    "43": {
+      "val_rmse": 12.816878318786621,
+      "test_rmse": 14.629365921020508,
+      "test_nasa": 1321.638427734375,
+      "epochs": 24
+    },
+    "44": {
+      "val_rmse": 14.62665843963623,
+      "test_rmse": 14.643863677978516,
+      "test_nasa": 1213.787841796875,
+      "epochs": 18
+    }
+  },
+  "tcn_summary": {
+    "n_seeds": 3,
+    "test_rmse_mean": 14.257883071899414,
+    "test_rmse_std": 0.6560226449689577,
+    "ensemble_test_rmse": 13.577729086647247,
+    "ensemble_test_nasa": 1008.1547536966048,
+    "budget_note": "CPU sandbox: ch=64, 24-epoch cap, patience 8"
+  }
+}
