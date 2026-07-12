@@ -30,35 +30,7 @@ Unplanned downtime is the canonical industrial-AI cost center: a single offshore
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│  SENSOR STREAMS   21 sensors × cycles per engine (NASA C-MAPSS)       │
-└───────────────┬──────────────────────────────────────────────────────┘
-                │  per-condition normalization · 40-cycle windows
-                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  RUL MODELS                                                            │
-│    • LightGBM on rolled features        — honest baseline              │
-│    • Temporal CNN on raw windows        — dilated Conv1d, champion     │
-│    • Quantile head (p10/p50/p90) + CQR  — calibrated uncertainty       │
-└───────────────┬──────────────────────────────────────────────────────┘
-                │  per-asset RUL + prediction interval + health index
-                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  ALERTING   threshold on predicted RUL → risk-ranked asset queue       │
-│             (operating point: lead time vs false-alarm rate)           │
-└───────────────┬──────────────────────────────────────────────────────┘
-                │  evidence bundle: sensor drift, RUL forecast
-                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  AGENTIC MAINTENANCE ENGINEER   (LangGraph ReAct + Groq qwen3-32b)     │
-│    tools:  get_asset_summary · get_sensor_trends · get_rul_forecast    │
-│            · search_docs  (lexical RAG over a cited maintenance corpus) │
-│    output: diagnosis · work order {action, procedure, parts, urgency}  │
-│            · doc citations · recommendation                            │
-└───────────────┬──────────────────────────────────────────────────────┘
-                │  DRAFT — PENDING ENGINEER REVIEW
-                ▼
-        ENGINEER DECIDES & SCHEDULES     — AI suggests; a human decides
+![Turbine architecture — sensor streams through RUL models, alerting, and the agentic maintenance engineer to human review, with the cited corpus feeding the agent and a cross-family judge validating its output](docs/architecture.png)
 ```
 
 **Evaluation is cross-family and human-validated** (the methodology carried over from [Voyager](https://github.com/hugocorreia123/voyager) and [Tracer](https://github.com/hugocorreia123/tracer-aml-graph-intelligence)): a `gpt-oss-120b` judge audits the `qwen3-32b` agent's work orders for groundedness and citation faithfulness, and the judge itself is validated against blind human labels with Cohen's κ.
