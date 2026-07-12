@@ -18,7 +18,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 st.set_page_config(page_title="Turbine — Predictive Maintenance",
-                   layout="wide", page_icon="🛩️")
+                   layout="wide", page_icon="🌀")
 
 ALERT_T = 35
 
@@ -42,7 +42,7 @@ def load():
 ev, fd004, base, tcn, qtl, op, ce, js, ag = load()
 DRIFT = [c for c in ev.columns if c.endswith("_drift_sigma")]
 
-st.title("🛩️ Turbine — Predictive Maintenance Intelligence")
+st.title("🌀 Turbine — Predictive Maintenance Intelligence")
 st.caption("Deep time-series models predict **Remaining Useful Life "
            "with calibrated uncertainty**; an agentic engineer "
            "diagnoses the fault and drafts the work order. "
