@@ -1,0 +1,32 @@
+{
+  "unit": 82,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:44:07.356583+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70) indicated by HPC outlet pressure drop (s_7), fuel flow increase (s_12), and core speed rise (s_9). Fan-section drift (s_13) suggests secondary fan workload effects.",
+    "confidence": 0.92,
+    "evidence": [
+      "s_7 drift -5.18\u03c3 (HPC outlet pressure falls with HPC degradation - DOC-1 \u00a71)",
+      "s_12 drift -4.9\u03c3 (fuel flow ratio rises with efficiency loss - DOC-1 \u00a71)",
+      "s_9 drift -2.77\u03c3 (core speed rises as core compensates for HPC loss - DOC-1 \u00a71)"
+    ],
+    "work_order": {
+      "action": "HPC inspection and efficiency verification",
+      "procedure_ref": "PROC-42 \u00a72.1",
+      "parts": [
+        "HPC stator vanes",
+        "HPC blade set"
+      ],
+      "urgency": "high"
+    },
+    "doc_citations": [
+      "DOC-2 \u00a70",
+      "DOC-1 \u00a71",
+      "DOC-1 \u00a70"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70) indicated by HPC outlet pressure drop (s_7), fuel flow increase (s_12), and core speed rise (s_9). Fan-section drift (s_13) suggests secondary fan workload effects.\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_7 drift -5.18\u03c3 (HPC outlet pressure falls with HPC degradation - DOC-1 \u00a71)\",\n    \"s_12 drift -4.9\u03c3 (fuel flow ratio rises with efficiency loss - DOC-1 \u00a71)\",\n    \"s_9 drift -2.77\u03c3 (core speed rises as core compensates for HPC loss - DOC-1 \u00a71)\"\n  ],\n  \"work_order\": {\n    \"action\": \"HPC inspection and efficiency verification\",\n    \"procedure_ref\": \"PROC-42 \u00a72.1\",\n    \"parts\": [\"HPC stator vanes\", \"HPC blade set\"],\n    \"urgency\": \"high\"\n  },\n  \"doc_citations\": [\"DOC-2 \u00a70\", \"DOC-1 \u00a71\", \"DOC-1 \u00a70\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

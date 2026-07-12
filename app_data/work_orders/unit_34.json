@@ -1,0 +1,33 @@
+{
+  "unit": 34,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:43:24.033994+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "HPC degradation (primary FD001 mode) indicated by s_7, s_11, s_12, s_14 drift consistent with DOC-2 \u00a71 signature",
+    "confidence": 0.92,
+    "evidence": [
+      "s_11 drift -8.26\u03c3 (HPC outlet pressure down)",
+      "s_12 drift +7.39\u03c3 (fuel flow ratio up)",
+      "s_14 drift +7.33\u03c3 (core speed compensation)",
+      "s_7 drift -7.0\u03c3 (HPC outlet pressure down)",
+      "RUL p50 4.5 cycles (<35 threshold)"
+    ],
+    "work_order": {
+      "action": "Schedule HPC inspection and blade-tip clearance adjustment",
+      "procedure_ref": "DOC-3 \u00a72.1.4",
+      "parts": [
+        "HPC blades",
+        "HPC seals"
+      ],
+      "urgency": "immediate"
+    },
+    "doc_citations": [
+      "DOC-2 \u00a71",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"HPC degradation (primary FD001 mode) indicated by s_7, s_11, s_12, s_14 drift consistent with DOC-2 \u00a71 signature\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_11 drift -8.26\u03c3 (HPC outlet pressure down)\",\n    \"s_12 drift +7.39\u03c3 (fuel flow ratio up)\",\n    \"s_14 drift +7.33\u03c3 (core speed compensation)\",\n    \"s_7 drift -7.0\u03c3 (HPC outlet pressure down)\",\n    \"RUL p50 4.5 cycles (<35 threshold)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Schedule HPC inspection and blade-tip clearance adjustment\",\n    \"procedure_ref\": \"DOC-3 \u00a72.1.4\",\n    \"parts\": [\"HPC blades\", \"HPC seals\"],\n    \"urgency\": \"immediate\"\n  },\n  \"doc_citations\": [\"DOC-2 \u00a71\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

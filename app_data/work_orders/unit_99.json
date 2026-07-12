@@ -1,0 +1,23 @@
+{
+  "unit": 99,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:09:13.244796+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Early signs of HPC degradation (s_9 and s_14 drift consistent with DOC-2 \u00a71 signature)",
+    "confidence": 0.65,
+    "evidence": [
+      "s_9 drift +1.55\u03c3 (DOC-2 \u00a71 core speed compensation)",
+      "s_14 drift +1.23\u03c3 (DOC-2 \u00a71 core speed compensation)",
+      "RUL 120.8 cycles (DOC-3 \u00a75 low urgency threshold)"
+    ],
+    "work_order": null,
+    "doc_citations": [
+      "DOC-2 \u00a71",
+      "DOC-1 \u00a72"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Early signs of HPC degradation (s_9 and s_14 drift consistent with DOC-2 \u00a71 signature)\",\n  \"confidence\": 0.65,\n  \"evidence\": [\n    \"s_9 drift +1.55\u03c3 (DOC-2 \u00a71 core speed compensation)\",\n    \"s_14 drift +1.23\u03c3 (DOC-2 \u00a71 core speed compensation)\",\n    \"RUL 120.8 cycles (DOC-3 \u00a75 low urgency threshold)\"\n  ],\n  \"work_order\": null,\n  \"doc_citations\": [\"DOC-2 \u00a71\", \"DOC-1 \u00a72\"],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

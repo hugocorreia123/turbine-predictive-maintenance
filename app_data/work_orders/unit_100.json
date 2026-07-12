@@ -1,0 +1,30 @@
+{
+  "unit": 100,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:41:51.357345+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "High-Pressure Compressor (HPC) degradation (DOC-2 \u00a71) with significant sensor drift in s_9 (core speed) and s_14 (fuel flow ratio), consistent with blade-tip clearance growth and erosion.",
+    "confidence": 0.92,
+    "evidence": [
+      "s_9 drift +22.29\u03c3 (core speed compensation)",
+      "s_14 drift +19.27\u03c3 (fuel flow ratio)",
+      "s_11 drift +4.55\u03c3 (HPC outlet pressure)",
+      "s_4 drift +4.35\u03c3 (LPT inlet temperature)"
+    ],
+    "work_order": {
+      "action": "Borescope inspection of HPC stages 1\u20133",
+      "procedure_ref": "DOC-3 \u00a71",
+      "parts": [],
+      "urgency": "high"
+    },
+    "doc_citations": [
+      "DOC-2 \u00a71",
+      "DOC-3 \u00a71",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"High-Pressure Compressor (HPC) degradation (DOC-2 \u00a71) with significant sensor drift in s_9 (core speed) and s_14 (fuel flow ratio), consistent with blade-tip clearance growth and erosion.\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_9 drift +22.29\u03c3 (core speed compensation)\",\n    \"s_14 drift +19.27\u03c3 (fuel flow ratio)\",\n    \"s_11 drift +4.55\u03c3 (HPC outlet pressure)\",\n    \"s_4 drift +4.35\u03c3 (LPT inlet temperature)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Borescope inspection of HPC stages 1\u20133\",\n    \"procedure_ref\": \"DOC-3 \u00a71\",\n    \"parts\": [],\n    \"urgency\": \"high\"\n  },\n  \"doc_citations\": [\"DOC-2 \u00a71\", \"DOC-3 \u00a71\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

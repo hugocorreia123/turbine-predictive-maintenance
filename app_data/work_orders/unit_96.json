@@ -1,0 +1,28 @@
+{
+  "unit": 96,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:08:14.467145+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 1,
+  "verdict": {
+    "diagnosis": "Slight drift in corrected fan speed (s_13) detected, but RUL remains well above alert threshold.",
+    "confidence": 0.65,
+    "evidence": [
+      "s_13 drift: +1.01\u03c3 (DOC-1 \u00a71 fan-section health indicator)",
+      "RUL p50: 114.2 cycles (>35 threshold)"
+    ],
+    "work_order": {
+      "action": "monitor",
+      "procedure_ref": null,
+      "parts": null,
+      "urgency": "PLANNED"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a71",
+      "DOC-1 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Slight drift in corrected fan speed (s_13) detected, but RUL remains well above alert threshold.\",\n  \"confidence\": 0.65,\n  \"evidence\": [\n    \"s_13 drift: +1.01\u03c3 (DOC-1 \u00a71 fan-section health indicator)\",\n    \"RUL p50: 114.2 cycles (>35 threshold)\"\n  ],\n  \"work_order\": {\n    \"action\": \"monitor\",\n    \"procedure_ref\": null,\n    \"parts\": null,\n    \"urgency\": \"PLANNED\"\n  },\n  \"doc_citations\": [\n    \"DOC-1 \u00a71\",\n    \"DOC-1 \u00a72\",\n    \"DOC-3 \u00a75\"\n  ],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

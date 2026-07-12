@@ -8,4 +8,4 @@ fd004.log
 nohup.out
 ckpt/
 .env
-work_orders/
+/work_orders/

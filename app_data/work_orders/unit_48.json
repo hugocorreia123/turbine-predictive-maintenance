@@ -1,0 +1,22 @@
+{
+  "unit": 48,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:07:00.019399+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 2,
+  "verdict": {
+    "diagnosis": "No significant sensor drift detected. Predicted RUL (98.3 cycles p50) exceeds alert threshold (35 cycles).",
+    "confidence": 0.9,
+    "evidence": [
+      "get_asset_summary: RUL p50=98.3, alert_threshold=35, alert=false",
+      "get_sensor_trends: no sensor exceeds 1.0 sigma drift"
+    ],
+    "work_order": null,
+    "doc_citations": [
+      "DOC-2 \u00a73",
+      "DOC-2 \u00a74"
+    ],
+    "recommendation": "no_action"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"No significant sensor drift detected. Predicted RUL (98.3 cycles p50) exceeds alert threshold (35 cycles).\",\n  \"confidence\": 0.9,\n  \"evidence\": [\n    \"get_asset_summary: RUL p50=98.3, alert_threshold=35, alert=false\",\n    \"get_sensor_trends: no sensor exceeds 1.0 sigma drift\"\n  ],\n  \"work_order\": null,\n  \"doc_citations\": [\"DOC-2 \u00a73\", \"DOC-2 \u00a74\"],\n  \"recommendation\": \"no_action\"\n}\n```"
+}

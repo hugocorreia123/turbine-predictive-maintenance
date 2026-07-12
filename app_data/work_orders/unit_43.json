@@ -1,0 +1,32 @@
+{
+  "unit": 43,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:58:22.794233+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 1,
+  "verdict": {
+    "diagnosis": "High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70)",
+    "confidence": 0.75,
+    "evidence": [
+      "s_11 drift +2.28\u03c3 (T25), slope +0.043\u03c3/cycle",
+      "s_7 drift -2.05\u03c3 (P30), slope -0.028\u03c3/cycle",
+      "s_8 drift +2.01\u03c3 (P15), slope +0.016\u03c3/cycle"
+    ],
+    "work_order": {
+      "action": "Schedule inspection",
+      "procedure_ref": "DOC-3 \u00a75.2",
+      "parts": [
+        "HPC stator blades",
+        "Compressor vanes"
+      ],
+      "urgency": "medium"
+    },
+    "doc_citations": [
+      "DOC-2 \u00a70",
+      "DOC-1 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"High-Pressure Compressor (HPC) efficiency loss (DOC-2 \u00a70)\",\n  \"confidence\": 0.75,\n  \"evidence\": [\n    \"s_11 drift +2.28\u03c3 (T25), slope +0.043\u03c3/cycle\",\n    \"s_7 drift -2.05\u03c3 (P30), slope -0.028\u03c3/cycle\",\n    \"s_8 drift +2.01\u03c3 (P15), slope +0.016\u03c3/cycle\"\n  ],\n  \"work_order\": {\n    \"action\": \"Schedule inspection\",\n    \"procedure_ref\": \"DOC-3 \u00a75.2\",\n    \"parts\": [\"HPC stator blades\", \"Compressor vanes\"],\n    \"urgency\": \"medium\"\n  },\n  \"doc_citations\": [\"DOC-2 \u00a70\", \"DOC-1 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

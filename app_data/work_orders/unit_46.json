@@ -1,0 +1,35 @@
+{
+  "unit": 46,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:59:28.902804+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation (DOC-2 \u00a72) indicated by s_8, s_13, and s_15 drift",
+    "confidence": 0.85,
+    "evidence": [
+      "s_9 drift 5.13\u03c3 (DOC-1 \u00a72)",
+      "s_14 drift 3.95\u03c3 (DOC-1 \u00a72)",
+      "s_11 drift 3.18\u03c3 (DOC-1 \u00a72)",
+      "s_15 drift 2.31\u03c3 (DOC-2 \u00a72)",
+      "s_13 drift 1.33\u03c3 (DOC-2 \u00a72)",
+      "s_8 drift 1.41\u03c3 (DOC-2 \u00a72)"
+    ],
+    "work_order": {
+      "action": "schedule_inspection",
+      "procedure_ref": "DOC-2 \u00a72",
+      "parts": [
+        "fan blades",
+        "bypass duct"
+      ],
+      "urgency": "PLANNED"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation (DOC-2 \u00a72) indicated by s_8, s_13, and s_15 drift\",\n  \"confidence\": 0.85,\n  \"evidence\": [\n    \"s_9 drift 5.13\u03c3 (DOC-1 \u00a72)\",\n    \"s_14 drift 3.95\u03c3 (DOC-1 \u00a72)\",\n    \"s_11 drift 3.18\u03c3 (DOC-1 \u00a72)\",\n    \"s_15 drift 2.31\u03c3 (DOC-2 \u00a72)\",\n    \"s_13 drift 1.33\u03c3 (DOC-2 \u00a72)\",\n    \"s_8 drift 1.41\u03c3 (DOC-2 \u00a72)\"\n  ],\n  \"work_order\": {\n    \"action\": \"schedule_inspection\",\n    \"procedure_ref\": \"DOC-2 \u00a72\",\n    \"parts\": [\"fan blades\", \"bypass duct\"],\n    \"urgency\": \"PLANNED\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

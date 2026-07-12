@@ -1,0 +1,31 @@
+{
+  "unit": 92,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:55:46.529365+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 1,
+  "verdict": {
+    "diagnosis": "Engine unit 92 shows significant drift in multiple sensors (s_12: -3.91\u03c3, s_7: -3.36\u03c3, s_20: -3.26\u03c3) with a predicted RUL of 20.3 cycles (p10 bound 14.9 cycles), breaching the alert threshold.",
+    "confidence": 0.92,
+    "evidence": [
+      "s_12 drift -3.91\u03c3 (DOC-1 \u00a72)",
+      "s_7 drift -3.36\u03c3 (DOC-1 \u00a72)",
+      "RUL p10=14.9 < 35 (alert threshold) (DOC-3 \u00a75)"
+    ],
+    "work_order": {
+      "action": "Schedule inspection and component replacement",
+      "procedure_ref": "DOC-3 \u00a73",
+      "parts": [
+        "High-pressure compressor blades",
+        "Turbine inlet temperature sensors"
+      ],
+      "urgency": "URGENT"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Engine unit 92 shows significant drift in multiple sensors (s_12: -3.91\u03c3, s_7: -3.36\u03c3, s_20: -3.26\u03c3) with a predicted RUL of 20.3 cycles (p10 bound 14.9 cycles), breaching the alert threshold.\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_12 drift -3.91\u03c3 (DOC-1 \u00a72)\",\n    \"s_7 drift -3.36\u03c3 (DOC-1 \u00a72)\",\n    \"RUL p10=14.9 < 35 (alert threshold) (DOC-3 \u00a75)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Schedule inspection and component replacement\",\n    \"procedure_ref\": \"DOC-3 \u00a73\",\n    \"parts\": [\"High-pressure compressor blades\", \"Turbine inlet temperature sensors\"],\n    \"urgency\": \"URGENT\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

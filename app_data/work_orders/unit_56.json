@@ -1,0 +1,33 @@
+{
+  "unit": 56,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:54:14.902215+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation (fan blade erosion/FOD, leading-edge wear)",
+    "confidence": 0.92,
+    "evidence": [
+      "s_8 drift +3.65\u03c3 (fan speed, DOC-2 \u00a72)",
+      "s_12 drift -3.54\u03c3 (fan speed, DOC-2 \u00a72)",
+      "s_13 drift +2.96\u03c3 (fan speed, DOC-2 \u00a72)",
+      "RUL p10=3.8 cycles (<10, DOC-3 \u00a75)"
+    ],
+    "work_order": {
+      "action": "Remove from service at next landing and inspect fan section",
+      "procedure_ref": "DOC-3 \u00a73",
+      "parts": [
+        "fan blades",
+        "fan leading edges"
+      ],
+      "urgency": "IMMEDIATE"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation (fan blade erosion/FOD, leading-edge wear)\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_8 drift +3.65\u03c3 (fan speed, DOC-2 \u00a72)\",\n    \"s_12 drift -3.54\u03c3 (fan speed, DOC-2 \u00a72)\",\n    \"s_13 drift +2.96\u03c3 (fan speed, DOC-2 \u00a72)\",\n    \"RUL p10=3.8 cycles (<10, DOC-3 \u00a75)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Remove from service at next landing and inspect fan section\",\n    \"procedure_ref\": \"DOC-3 \u00a73\",\n    \"parts\": [\"fan blades\", \"fan leading edges\"],\n    \"urgency\": \"IMMEDIATE\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

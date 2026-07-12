@@ -1,0 +1,33 @@
+{
+  "unit": 42,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:47:12.232406+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "High-Pressure Compressor (HPC) efficiency loss with cascading gas-path degradation",
+    "confidence": 0.92,
+    "evidence": [
+      "s_3 drift +2.87\u03c3 (HPC outlet temp \u2191 per DOC-1 \u00a71)",
+      "s_7 drift -5.42\u03c3 (HPC outlet pressure \u2193 per DOC-1 \u00a71)",
+      "s_11 drift -4.88\u03c3 (HPC outlet static pressure \u2193 per DOC-1 \u00a71)",
+      "s_4 drift +4.38\u03c3 (LPT outlet temp \u2191 per DOC-1 \u00a71)"
+    ],
+    "work_order": {
+      "action": "Replace HPC assembly and inspect gas-path components",
+      "procedure_ref": "DOC-4 \u00a77.2",
+      "parts": [
+        "HPC rotor/stator kit",
+        "LPT nozzles"
+      ],
+      "urgency": "critical"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a71",
+      "DOC-2 \u00a70",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"High-Pressure Compressor (HPC) efficiency loss with cascading gas-path degradation\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_3 drift +2.87\u03c3 (HPC outlet temp \u2191 per DOC-1 \u00a71)\",\n    \"s_7 drift -5.42\u03c3 (HPC outlet pressure \u2193 per DOC-1 \u00a71)\",\n    \"s_11 drift -4.88\u03c3 (HPC outlet static pressure \u2193 per DOC-1 \u00a71)\",\n    \"s_4 drift +4.38\u03c3 (LPT outlet temp \u2191 per DOC-1 \u00a71)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Replace HPC assembly and inspect gas-path components\",\n    \"procedure_ref\": \"DOC-4 \u00a77.2\",\n    \"parts\": [\"HPC rotor/stator kit\", \"LPT nozzles\"],\n    \"urgency\": \"critical\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a71\", \"DOC-2 \u00a70\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

@@ -1,0 +1,33 @@
+{
+  "unit": 81,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:46:15.053304+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation (DOC-2 \u00a72) with multiple sensors indicating fan speed (s_8, s_13), bypass ratio (s_15), and core parameter shifts. RUL predictions indicate imminent failure (p10 RUL=1.1 cycles).",
+    "confidence": 0.95,
+    "evidence": [
+      "s_11 drift +7.5\u03c3 (fan inlet temp)",
+      "s_7 drift -6.45\u03c3 (compressor discharge pressure)",
+      "s_8 drift +5.81\u03c3 (fan speed)",
+      "p10 RUL=1.1 cycles (DOC-3 \u00a75)"
+    ],
+    "work_order": {
+      "action": "remove from service for fan-section inspection and blade replacement",
+      "procedure_ref": "DOC-3 \u00a73",
+      "parts": [
+        "fan blades",
+        "fan speed sensors"
+      ],
+      "urgency": "IMMEDIATE"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation (DOC-2 \u00a72) with multiple sensors indicating fan speed (s_8, s_13), bypass ratio (s_15), and core parameter shifts. RUL predictions indicate imminent failure (p10 RUL=1.1 cycles).\",\n  \"confidence\": 0.95,\n  \"evidence\": [\n    \"s_11 drift +7.5\u03c3 (fan inlet temp)\", \n    \"s_7 drift -6.45\u03c3 (compressor discharge pressure)\",\n    \"s_8 drift +5.81\u03c3 (fan speed)\",\n    \"p10 RUL=1.1 cycles (DOC-3 \u00a75)\"\n  ],\n  \"work_order\": {\n    \"action\": \"remove from service for fan-section inspection and blade replacement\",\n    \"procedure_ref\": \"DOC-3 \u00a73\",\n    \"parts\": [\"fan blades\", \"fan speed sensors\"],\n    \"urgency\": \"IMMEDIATE\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

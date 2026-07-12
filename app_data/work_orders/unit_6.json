@@ -1,0 +1,23 @@
+{
+  "unit": 6,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:04:26.931468+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Sensor s_7 shows mild drift (-1.18\u03c3) with a slight negative slope (-0.016\u03c3/cycle). RUL predictions remain well above the alert threshold.",
+    "confidence": 0.4,
+    "evidence": [
+      "s_7 drift: -1.18\u03c3 (DOC-1 \u00a72)",
+      "s_7 slope: -0.016\u03c3/cycle",
+      "RUL p10: 69.9 cycles (>35 threshold)"
+    ],
+    "work_order": null,
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Sensor s_7 shows mild drift (-1.18\u03c3) with a slight negative slope (-0.016\u03c3/cycle). RUL predictions remain well above the alert threshold.\",\n  \"confidence\": 0.4,\n  \"evidence\": [\n    \"s_7 drift: -1.18\u03c3 (DOC-1 \u00a72)\",\n    \"s_7 slope: -0.016\u03c3/cycle\",\n    \"RUL p10: 69.9 cycles (>35 threshold)\"\n  ],\n  \"work_order\": null,\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

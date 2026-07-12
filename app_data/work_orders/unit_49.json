@@ -1,0 +1,33 @@
+{
+  "unit": 49,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:53:13.682491+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation (s_8, s_13 drift) with secondary HPC efficiency loss (s_11, s_12 decline). RUL < 35 cycles.",
+    "confidence": 0.92,
+    "evidence": [
+      "s_8 drift +8.45\u03c3 (fan speed drift \u2191) [DOC-1 \u00a71]",
+      "s_13 drift +6.48\u03c3 (corrected fan speed \u2191) [DOC-1 \u00a71]",
+      "s_11 drift -6.96\u03c3 (HPC outlet pressure \u2193) [DOC-1 \u00a71]",
+      "s_12 drift -5.97\u03c3 (fuel flow ratio \u2191) [DOC-1 \u00a71]"
+    ],
+    "work_order": {
+      "action": "Fan-section inspection and HPC efficiency assessment",
+      "procedure_ref": "DOC-2 \u00a72",
+      "parts": [
+        "fan blades",
+        "HPC stator vanes"
+      ],
+      "urgency": "critical"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a71",
+      "DOC-2 \u00a70",
+      "DOC-2 \u00a72"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation (s_8, s_13 drift) with secondary HPC efficiency loss (s_11, s_12 decline). RUL < 35 cycles.\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_8 drift +8.45\u03c3 (fan speed drift \u2191) [DOC-1 \u00a71]\",\n    \"s_13 drift +6.48\u03c3 (corrected fan speed \u2191) [DOC-1 \u00a71]\",\n    \"s_11 drift -6.96\u03c3 (HPC outlet pressure \u2193) [DOC-1 \u00a71]\",\n    \"s_12 drift -5.97\u03c3 (fuel flow ratio \u2191) [DOC-1 \u00a71]\"\n  ],\n  \"work_order\": {\n    \"action\": \"Fan-section inspection and HPC efficiency assessment\",\n    \"procedure_ref\": \"DOC-2 \u00a72\",\n    \"parts\": [\"fan blades\", \"HPC stator vanes\"],\n    \"urgency\": \"critical\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a71\", \"DOC-2 \u00a70\", \"DOC-2 \u00a72\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

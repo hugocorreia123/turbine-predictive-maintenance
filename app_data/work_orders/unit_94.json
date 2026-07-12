@@ -1,0 +1,32 @@
+{
+  "unit": 94,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:03:09.212510+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Sensor s_7 shows significant negative drift (-2.56\u03c3) and worsening slope (-0.054\u03c3/cycle), consistent with DOC-1 \u00a70 (T25 temperature sensor degradation). Other sensors show mixed trends but below 2\u03c3 threshold.",
+    "confidence": 0.75,
+    "evidence": [
+      "s_7 drift -2.56\u03c3 (DOC-1 \u00a72 significant degradation threshold)",
+      "s_7 slope -0.054\u03c3/cycle (worsening trend)",
+      "RUL p10=41.4 cycles (>35 threshold, DOC-3 \u00a75)"
+    ],
+    "work_order": {
+      "action": "Schedule inspection",
+      "procedure_ref": "DOC-3 \u00a71",
+      "parts": [
+        "T25 temperature sensor (s_7)",
+        "related thermocouple wiring"
+      ],
+      "urgency": "PLANNED"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a70",
+      "DOC-1 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Sensor s_7 shows significant negative drift (-2.56\u03c3) and worsening slope (-0.054\u03c3/cycle), consistent with DOC-1 \u00a70 (T25 temperature sensor degradation). Other sensors show mixed trends but below 2\u03c3 threshold.\",\n  \"confidence\": 0.75,\n  \"evidence\": [\n    \"s_7 drift -2.56\u03c3 (DOC-1 \u00a72 significant degradation threshold)\",\n    \"s_7 slope -0.054\u03c3/cycle (worsening trend)\",\n    \"RUL p10=41.4 cycles (>35 threshold, DOC-3 \u00a75)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Schedule inspection\",\n    \"procedure_ref\": \"DOC-3 \u00a71\",\n    \"parts\": [\"T25 temperature sensor (s_7)\", \"related thermocouple wiring\"],\n    \"urgency\": \"PLANNED\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a70\", \"DOC-1 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

@@ -1,0 +1,34 @@
+{
+  "unit": 52,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:00:15.237961+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "HPC degradation (DOC-2 \u00a71) indicated by s_9 (+10.3\u03c3), s_14 (+15.4\u03c3), and s_11 (-4.3\u03c3) drift consistent with blade-tip clearance growth and compressor inefficiency",
+    "confidence": 0.92,
+    "evidence": [
+      "s_14 drift +15.39\u03c3 (p10 RUL=33.6 cycles)",
+      "s_9 drift +10.3\u03c3",
+      "s_11 drift -4.29\u03c3",
+      "s_7 drift -3.39\u03c3",
+      "s_4 drift +3.94\u03c3"
+    ],
+    "work_order": {
+      "action": "Schedule HPC inspection and blade-tip clearance measurement",
+      "procedure_ref": "DOC-2 \u00a71",
+      "parts": [
+        "HPC blades",
+        "compressor casing"
+      ],
+      "urgency": "URGENT"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a71",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"HPC degradation (DOC-2 \u00a71) indicated by s_9 (+10.3\u03c3), s_14 (+15.4\u03c3), and s_11 (-4.3\u03c3) drift consistent with blade-tip clearance growth and compressor inefficiency\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_14 drift +15.39\u03c3 (p10 RUL=33.6 cycles)\",\n    \"s_9 drift +10.3\u03c3\",\n    \"s_11 drift -4.29\u03c3\",\n    \"s_7 drift -3.39\u03c3\",\n    \"s_4 drift +3.94\u03c3\"\n  ],\n  \"work_order\": {\n    \"action\": \"Schedule HPC inspection and blade-tip clearance measurement\",\n    \"procedure_ref\": \"DOC-2 \u00a71\",\n    \"parts\": [\"HPC blades\", \"compressor casing\"],\n    \"urgency\": \"URGENT\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a71\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

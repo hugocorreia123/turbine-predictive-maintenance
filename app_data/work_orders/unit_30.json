@@ -1,0 +1,30 @@
+{
+  "unit": 30,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:06:22.616218+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "HPC degradation (DOC-2 \u00a71) indicated by s_9 (+1.6\u03c3), s_14 (+1.82\u03c3), s_12 (+1.14\u03c3 drift), and s_4 (+1.28\u03c3) consistent with compressor efficiency loss",
+    "confidence": 0.75,
+    "evidence": [
+      "s_9 drift +1.6\u03c3 (core speed compensating \u2191)",
+      "s_14 drift +1.82\u03c3 (core speed \u2191)",
+      "s_12 drift +1.14\u03c3 (fuel flow ratio \u2191)",
+      "s_4 drift +1.28\u03c3 (LPT temp \u2191)",
+      "s_11 drift -1.31\u03c3 (HPC outlet pressure \u2193)"
+    ],
+    "work_order": {
+      "action": "monitor",
+      "procedure_ref": "DOC-2 \u00a71",
+      "parts": [],
+      "urgency": "low"
+    },
+    "doc_citations": [
+      "DOC-2 \u00a71",
+      "DOC-1 \u00a71"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"HPC degradation (DOC-2 \u00a71) indicated by s_9 (+1.6\u03c3), s_14 (+1.82\u03c3), s_12 (+1.14\u03c3 drift), and s_4 (+1.28\u03c3) consistent with compressor efficiency loss\",\n  \"confidence\": 0.75,\n  \"evidence\": [\n    \"s_9 drift +1.6\u03c3 (core speed compensating \u2191)\",\n    \"s_14 drift +1.82\u03c3 (core speed \u2191)\",\n    \"s_12 drift +1.14\u03c3 (fuel flow ratio \u2191)\",\n    \"s_4 drift +1.28\u03c3 (LPT temp \u2191)\",\n    \"s_11 drift -1.31\u03c3 (HPC outlet pressure \u2193)\"\n  ],\n  \"work_order\": {\n    \"action\": \"monitor\",\n    \"procedure_ref\": \"DOC-2 \u00a71\",\n    \"parts\": [],\n    \"urgency\": \"low\"\n  },\n  \"doc_citations\": [\"DOC-2 \u00a71\", \"DOC-1 \u00a71\"],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

@@ -1,0 +1,21 @@
+{
+  "unit": 83,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:07:35.867598+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 2,
+  "verdict": {
+    "diagnosis": "Engine unit 83 shows no significant sensor drift (all sensors within \u00b11.0\u03c3 of baseline) and predicted RUL (110.4 cycles, p50=124.3) well above alert threshold.",
+    "confidence": 0.95,
+    "evidence": [
+      "No sensor exceeds 1.0\u03c3 drift (get_sensor_trends)"
+    ],
+    "work_order": null,
+    "doc_citations": [
+      "DOC-2 \u00a73",
+      "DOC-2 \u00a74"
+    ],
+    "recommendation": "no_action"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Engine unit 83 shows no significant sensor drift (all sensors within \u00b11.0\u03c3 of baseline) and predicted RUL (110.4 cycles, p50=124.3) well above alert threshold.\",\n  \"confidence\": 0.95,\n  \"evidence\": [\"No sensor exceeds 1.0\u03c3 drift (get_sensor_trends)\"],\n  \"work_order\": null,\n  \"doc_citations\": [\"DOC-2 \u00a73\", \"DOC-2 \u00a74\"],\n  \"recommendation\": \"no_action\"\n}\n```"
+}

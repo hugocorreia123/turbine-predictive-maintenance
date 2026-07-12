@@ -1,0 +1,31 @@
+{
+  "unit": 27,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:57:47.057916+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Potential HPC degradation with mixed sensor trends",
+    "confidence": 0.6,
+    "evidence": [
+      "s_7 drift -2.09\u03c3 (HPC outlet pressure \u2193, DOC-1 \u00a71)",
+      "s_12 drift -2.17\u03c3 (fuel flow ratio \u2193, contrary to DOC-2 \u00a71)",
+      "s_11 drift +2.09\u03c3 (HPC outlet pressure \u2191, opposite DOC-2 \u00a71)",
+      "s_4 drift +1.87\u03c3 (LPT outlet temp \u2191, end-of-life indicator DOC-1 \u00a71)"
+    ],
+    "work_order": {
+      "action": "monitor",
+      "procedure_ref": "DOC-3 \u00a74",
+      "parts": [],
+      "urgency": "low"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a71",
+      "DOC-2 \u00a71",
+      "DOC-2 \u00a70",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Potential HPC degradation with mixed sensor trends\",\n  \"confidence\": 0.6,\n  \"evidence\": [\n    \"s_7 drift -2.09\u03c3 (HPC outlet pressure \u2193, DOC-1 \u00a71)\",\n    \"s_12 drift -2.17\u03c3 (fuel flow ratio \u2193, contrary to DOC-2 \u00a71)\",\n    \"s_11 drift +2.09\u03c3 (HPC outlet pressure \u2191, opposite DOC-2 \u00a71)\",\n    \"s_4 drift +1.87\u03c3 (LPT outlet temp \u2191, end-of-life indicator DOC-1 \u00a71)\"\n  ],\n  \"work_order\": {\n    \"action\": \"monitor\",\n    \"procedure_ref\": \"DOC-3 \u00a74\",\n    \"parts\": [],\n    \"urgency\": \"low\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a71\", \"DOC-2 \u00a71\", \"DOC-2 \u00a70\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

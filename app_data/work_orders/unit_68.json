@@ -1,0 +1,34 @@
+{
+  "unit": 68,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:45:04.407497+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "High-Pressure Compressor (HPC) degradation (primary FD001 mode)",
+    "confidence": 0.92,
+    "evidence": [
+      "s_11 (HPC outlet pressure) drift -4.77\u03c3, slope -0.11\u03c3/cycle",
+      "s_9 (core speed) drift +6.23\u03c3, slope +0.116\u03c3/cycle",
+      "s_3 (HPC outlet temp) drift +5.04\u03c3, slope +0.123\u03c3/cycle",
+      "s_4 (LPT outlet temp) drift +5.56\u03c3, slope +0.081\u03c3/cycle"
+    ],
+    "work_order": {
+      "action": "Replace HPC blades and seals",
+      "procedure_ref": "DOC-2 \u00a71",
+      "parts": [
+        "HPC blades",
+        "HPC seals"
+      ],
+      "urgency": "critical"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a71",
+      "DOC-2 \u00a70",
+      "DOC-2 \u00a71",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"High-Pressure Compressor (HPC) degradation (primary FD001 mode)\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_11 (HPC outlet pressure) drift -4.77\u03c3, slope -0.11\u03c3/cycle\",\n    \"s_9 (core speed) drift +6.23\u03c3, slope +0.116\u03c3/cycle\",\n    \"s_3 (HPC outlet temp) drift +5.04\u03c3, slope +0.123\u03c3/cycle\",\n    \"s_4 (LPT outlet temp) drift +5.56\u03c3, slope +0.081\u03c3/cycle\"\n  ],\n  \"work_order\": {\n    \"action\": \"Replace HPC blades and seals\",\n    \"procedure_ref\": \"DOC-2 \u00a71\",\n    \"parts\": [\"HPC blades\", \"HPC seals\"],\n    \"urgency\": \"critical\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a71\", \"DOC-2 \u00a70\", \"DOC-2 \u00a71\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}

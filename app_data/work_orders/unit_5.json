@@ -1,0 +1,30 @@
+{
+  "unit": 5,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T03:03:39.934696+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation possible due to s_8 drift, but signature incomplete",
+    "confidence": 0.65,
+    "evidence": [
+      "s_12 drift -1.54\u03c3 (DOC-2 \u00a72)",
+      "s_21 drift -1.18\u03c3 (DOC-2 \u00a72)",
+      "s_8 drift +1.16\u03c3 (DOC-2 \u00a72)",
+      "s_20 drift -1.04\u03c3"
+    ],
+    "work_order": {
+      "action": "monitor",
+      "procedure_ref": "DOC-2 \u00a74",
+      "parts": [],
+      "urgency": "PLANNED"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "monitor"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation possible due to s_8 drift, but signature incomplete\",\n  \"confidence\": 0.65,\n  \"evidence\": [\n    \"s_12 drift -1.54\u03c3 (DOC-2 \u00a72)\",\n    \"s_21 drift -1.18\u03c3 (DOC-2 \u00a72)\",\n    \"s_8 drift +1.16\u03c3 (DOC-2 \u00a72)\",\n    \"s_20 drift -1.04\u03c3\"\n  ],\n  \"work_order\": {\n    \"action\": \"monitor\",\n    \"procedure_ref\": \"DOC-2 \u00a74\",\n    \"parts\": [],\n    \"urgency\": \"PLANNED\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"monitor\"\n}\n```"
+}

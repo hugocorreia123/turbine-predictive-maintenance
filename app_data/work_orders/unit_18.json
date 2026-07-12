@@ -1,0 +1,33 @@
+{
+  "unit": 18,
+  "status": "DRAFT \u2014 PENDING ENGINEER REVIEW",
+  "generated_at": "2026-07-12T02:56:37.630336+00:00",
+  "model": "qwen/qwen3-32b",
+  "tool_calling_turns": 3,
+  "verdict": {
+    "diagnosis": "Fan-section degradation (s_8, s_13 drift) and HPC efficiency loss (s_12 drift)",
+    "confidence": 0.92,
+    "evidence": [
+      "s_12 drift -3.95\u03c3 (DOC-2 \u00a72 HPC efficiency loss)",
+      "s_8 drift +3.46\u03c3 (DOC-2 \u00a72 fan-section degradation)",
+      "s_13 drift +2.8\u03c3 (DOC-2 \u00a72 fan-section degradation)"
+    ],
+    "work_order": {
+      "action": "Replace fan blades and inspect HPC",
+      "procedure_ref": "DOC-2 \u00a72",
+      "parts": [
+        "fan blades",
+        "HPC stator vanes"
+      ],
+      "urgency": "high"
+    },
+    "doc_citations": [
+      "DOC-1 \u00a72",
+      "DOC-2 \u00a70",
+      "DOC-2 \u00a72",
+      "DOC-3 \u00a75"
+    ],
+    "recommendation": "work_order"
+  },
+  "narrative": "```json\n{\n  \"diagnosis\": \"Fan-section degradation (s_8, s_13 drift) and HPC efficiency loss (s_12 drift)\",\n  \"confidence\": 0.92,\n  \"evidence\": [\n    \"s_12 drift -3.95\u03c3 (DOC-2 \u00a72 HPC efficiency loss)\",\n    \"s_8 drift +3.46\u03c3 (DOC-2 \u00a72 fan-section degradation)\",\n    \"s_13 drift +2.8\u03c3 (DOC-2 \u00a72 fan-section degradation)\"\n  ],\n  \"work_order\": {\n    \"action\": \"Replace fan blades and inspect HPC\",\n    \"procedure_ref\": \"DOC-2 \u00a72\",\n    \"parts\": [\"fan blades\", \"HPC stator vanes\"],\n    \"urgency\": \"high\"\n  },\n  \"doc_citations\": [\"DOC-1 \u00a72\", \"DOC-2 \u00a70\", \"DOC-2 \u00a72\", \"DOC-3 \u00a75\"],\n  \"recommendation\": \"work_order\"\n}\n```"
+}
