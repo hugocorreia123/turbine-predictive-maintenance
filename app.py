@@ -20,6 +20,9 @@ import streamlit as st
 st.set_page_config(page_title="Turbine — Predictive Maintenance",
                    layout="wide", page_icon="🌀")
 
+import turbine_theme as th
+th.inject()
+
 ALERT_T = 35
 
 
@@ -42,44 +45,107 @@ def load():
 ev, fd004, base, tcn, qtl, op, ce, js, ag = load()
 DRIFT = [c for c in ev.columns if c.endswith("_drift_sigma")]
 
-st.title("🌀 Turbine — Predictive Maintenance Intelligence")
-st.caption("Deep time-series models predict **Remaining Useful Life "
-           "with calibrated uncertainty**; an agentic engineer "
-           "diagnoses the fault and drafts the work order. "
-           "**AI suggests — the engineer decides and schedules.** "
-           "NASA C-MAPSS turbofan benchmark.")
+import turbine_friendly as tf
 
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("RUL error — hard benchmark (FD004)",
-          f"{fd004['tcn_summary']['ensemble_test_rmse']:.2f} RMSE",
-          f"beats GBM {fd004['gbm']['test_rmse']:.2f}")
-c2.metric("Uncertainty calibration",
-          f"{qtl['test_coverage_conformal']:.0%}",
-          "conformal 80% interval")
+if not tf.show_welcome():
+    st.stop()
+
+th.hero(
+    "Predictive Maintenance Intelligence",
+    "Turbine",
+    "Deep time-series models predict Remaining Useful Life with "
+    "calibrated uncertainty; an agentic engineer diagnoses the fault "
+    "and drafts the work order. AI suggests — the engineer decides "
+    "and schedules.",
+    "NASA C-MAPSS turbofan benchmark · calibrated, not asserted",
+)
+
 op_gbm = op["chosen_gbm"]
-c3.metric("Failure warning @ low false alarms",
-          f"{op_gbm['mean_lead_time']:.0f} cycles",
-          f"{op_gbm['false_alarm_rate']:.1%} false alarms")
-c4.metric("Copilot escalation (dying engines)",
-          f"{ce['escalation_dying_correct']}", "flagged for work order")
 
-tab_fleet, tab_results, tab_method = st.tabs(
-    ["🔧 Fleet & work orders", "📊 Results", "ℹ️ Method"])
+# ---------------- active engine — one selector drives every panel ----------------
+wo_dir = Path("app_data/work_orders")
+investigated = {int(p.stem.split("_")[1])
+                for p in wo_dir.glob("unit_*.json")}
+
+fleet = ev.copy()
+fleet["max_drift"] = fleet[DRIFT].abs().max(axis=1)
+fleet["status"] = np.where(
+    fleet["gbm_rul"] < 10, "🔴 critical",
+    np.where(fleet["gbm_rul"] < ALERT_T, "🟠 alert", "🟢 ok"))
+fleet = fleet.sort_values("gbm_rul").reset_index(drop=True)
+fleet["risk_rank"] = fleet.index + 1
+_fi = fleet.set_index("unit")
+
+opts = fleet["unit"].tolist()
+opts = sorted(opts, key=lambda u: (u not in investigated,
+                                   _fi.loc[u, "gbm_rul"]))
+
+
+def fmt_unit(u):
+    row = _fi.loc[u]
+    tag = " · WO ready" if u in investigated else ""
+    return (f"Engine {u} — {row['status']} · "
+            f"RUL {row['gbm_rul']:.0f} cycles{tag}")
+
+
+unit = st.selectbox("🎯 Active engine — pick an asset; every panel "
+                    "below follows it", opts, format_func=fmt_unit)
+r = ev[ev["unit"] == unit].iloc[0]
+_row = _fi.loc[unit]
+_wo_file = wo_dir / f"unit_{unit}.json"
+_wo = json.loads(_wo_file.read_text()) if _wo_file.exists() else None
+
+
+def engine_vitals(r, row, rank, total, wo):
+    """The selected engine's vitals — these change with the case above."""
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        st.metric("Predicted remaining life", f"{r['gbm_rul']:.0f} cycles",
+                  str(row["status"]), delta_color="off")
+        st.caption(f"**Means:** risk rank #{rank} of {total} in the "
+                   "fleet — the calendar doesn't know this; the "
+                   "sensors do.")
+    with c2:
+        st.metric("80% confidence window",
+                  f"{r['p10_conf']:.0f}–{r['p90_conf']:.0f} cycles",
+                  f"p50 {r['p50']:.0f}", delta_color="off")
+        st.caption("**Means:** the failure most likely lands inside "
+                   "this window — conformally calibrated, so 80% "
+                   "behaves like 80%.")
+    with c3:
+        trends = sorted([(d.replace("_drift_sigma", ""), float(r[d]))
+                         for d in DRIFT], key=lambda x: -abs(x[1]))
+        s_name, s_sig = trends[0]
+        st.metric("Strongest sensor drift", f"{s_sig:+.1f} σ",
+                  s_name, delta_color="off")
+        st.caption("**Means:** how far that sensor sits from this "
+                   "engine's own healthy baseline — the physical "
+                   "evidence behind the prediction.")
+    with c4:
+        if wo:
+            v = wo.get("verdict", {})
+            w = v.get("work_order", {}) or {}
+            urg = str(w.get("urgency", v.get("recommendation", "?")))
+            st.metric("Work order", urg.replace("_", " ").upper(),
+                      f"confidence {v.get('confidence', 0):.2f}",
+                      delta_color="off")
+            st.caption("**Means:** drafted and waiting for the "
+                       "engineer's signature — never auto-scheduled.")
+        else:
+            st.metric("Work order", "NOT DRAFTED")
+            st.caption("**Means:** no draft for this engine in the "
+                       "demo set — pick one marked 'WO ready'.")
+
+
+engine_vitals(r, _row, int(_row["risk_rank"]), len(fleet), _wo)
+st.divider()
+
+tab_fleet, tab_results, tab_method, tab_help = st.tabs(
+    ["🔧 Fleet & work orders", "📊 Results", "ℹ️ Method", "❓ Help"])
 
 # ------------------------------------------------------------------
 with tab_fleet:
     left, right = st.columns([3, 2], gap="large")
-
-    wo_dir = Path("app_data/work_orders")
-    investigated = {int(p.stem.split("_")[1])
-                    for p in wo_dir.glob("unit_*.json")}
-
-    fleet = ev.copy()
-    fleet["max_drift"] = fleet[DRIFT].abs().max(axis=1)
-    fleet["status"] = np.where(
-        fleet["gbm_rul"] < 10, "🔴 critical",
-        np.where(fleet["gbm_rul"] < ALERT_T, "🟠 alert", "🟢 ok"))
-    fleet = fleet.sort_values("gbm_rul")
 
     with left:
         st.subheader("Fleet — ranked by predicted RUL")
@@ -91,17 +157,6 @@ with tab_fleet:
             lambda u: "📋" if u in investigated else "")
         st.dataframe(show, hide_index=True, height=340,
                      use_container_width=True)
-
-        opts = fleet["unit"].tolist()
-        opts = sorted(opts, key=lambda u: (u not in investigated,
-                                           fleet.set_index("unit")
-                                           .loc[u, "gbm_rul"]))
-        unit = st.selectbox(
-            "Inspect asset", opts,
-            format_func=lambda u: f"Engine {u} — RUL "
-            f"{fleet.set_index('unit').loc[u, 'gbm_rul']:.0f}"
-            + ("  📋" if u in investigated else ""))
-        r = ev[ev["unit"] == unit].iloc[0]
 
         # ---- RUL fan + sensor drift ----
         fig = go.Figure()
@@ -183,6 +238,10 @@ with tab_fleet:
 
 # ------------------------------------------------------------------
 with tab_results:
+    tf.show_metrics(fd004, qtl, op, ce)
+    st.caption("Portfolio-level evaluation — fixed benchmark numbers. "
+               "The cards above the tabs follow the selected engine.")
+    st.divider()
     a, b = st.columns(2)
     with a:
         st.subheader("RUL accuracy vs published benchmarks")
@@ -240,6 +299,7 @@ Quantile RUL (p10/p50/p90) with **conformal calibration**:
 
 # ------------------------------------------------------------------
 with tab_method:
+    tf.show_how_it_works()
     st.markdown(f"""
 **Pipeline.** NASA C-MAPSS turbofan run-to-failure data → RUL labels
 capped at 125 cycles (benchmark convention) → **LightGBM baseline** on
@@ -269,3 +329,7 @@ illustrative scaling with stated assumptions.
 Code: [github.com/hugocorreia123/turbine-predictive-maintenance](https://github.com/hugocorreia123/turbine-predictive-maintenance)
 · Hugo Correia — [LinkedIn](https://www.linkedin.com/in/hugogncorreia)
 """)
+
+# ------------------------------------------------------------------
+with tab_help:
+    tf.show_help(fd004, qtl, op, ce, js, ag)
