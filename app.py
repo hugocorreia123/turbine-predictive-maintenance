@@ -100,25 +100,26 @@ def engine_vitals(r, row, rank, total, wo):
     """The selected engine's vitals — these change with the case above."""
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("Predicted remaining life", f"{r['gbm_rul']:.0f} cycles",
-                  str(row["status"]), delta_color="off")
-        st.caption(f"**Means:** risk rank #{rank} of {total} in the "
-                   "fleet — the calendar doesn't know this; the "
-                   "sensors do.")
+        st.metric("Remaining life", f"{r['gbm_rul']:.0f} cycles")
+        st.caption(f"**Means:** about {r['gbm_rul']:.0f} flights left "
+                   f"before failure. Status {row['status']} — risk rank "
+                   f"#{rank} of {total} in the fleet. The calendar "
+                   "doesn't know this; the sensors do.")
     with c2:
         st.metric("80% confidence window",
-                  f"{r['p10_conf']:.0f}–{r['p90_conf']:.0f} cycles",
-                  f"p50 {r['p50']:.0f}", delta_color="off")
-        st.caption("**Means:** the failure most likely lands inside "
-                   "this window — conformally calibrated, so 80% "
-                   "behaves like 80%.")
+                  f"{r['p10_conf']:.0f}–{r['p90_conf']:.0f}")
+        st.caption("**Means:** the failure most likely lands in this "
+                   "range of cycles — calibrated on held-out engines, "
+                   "so 80% really behaves like 80%.")
     with c3:
         trends = sorted([(d.replace("_drift_sigma", ""), float(r[d]))
                          for d in DRIFT], key=lambda x: -abs(x[1]))
         s_name, s_sig = trends[0]
-        st.metric("Strongest sensor drift", f"{s_sig:+.1f} σ",
-                  s_name, delta_color="off")
-        st.caption("**Means:** how far that sensor sits from this "
+        word = ("severe" if abs(s_sig) >= 6 else
+                "clear" if abs(s_sig) >= 3 else "mild")
+        st.metric("Strongest sensor drift", f"{s_sig:+.1f} σ")
+        st.caption(f"**Means:** {word}. Sensor {s_name} sits "
+                   f"{abs(s_sig):.1f} standard deviations from this "
                    "engine's own healthy baseline — the physical "
                    "evidence behind the prediction.")
     with c4:
@@ -126,15 +127,15 @@ def engine_vitals(r, row, rank, total, wo):
             v = wo.get("verdict", {})
             w = v.get("work_order", {}) or {}
             urg = str(w.get("urgency", v.get("recommendation", "?")))
-            st.metric("Work order", urg.replace("_", " ").upper(),
-                      f"confidence {v.get('confidence', 0):.2f}",
-                      delta_color="off")
-            st.caption("**Means:** drafted and waiting for the "
-                       "engineer's signature — never auto-scheduled.")
+            st.metric("Work order", urg.replace("_", " ").upper())
+            st.caption(f"**Means:** drafted at confidence "
+                       f"{v.get('confidence', 0):.2f}, waiting for the "
+                       "engineer's signature. Never auto-scheduled.")
         else:
-            st.metric("Work order", "NOT DRAFTED")
-            st.caption("**Means:** no draft for this engine in the "
-                       "demo set — pick one marked 'WO ready'.")
+            st.metric("Work order", "No draft yet")
+            st.caption("**Means:** no draft for this engine in the demo "
+                       "set — pick one marked 'WO ready' in the "
+                       "selector above.")
 
 
 engine_vitals(r, _row, int(_row["risk_rank"]), len(fleet), _wo)
