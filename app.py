@@ -83,13 +83,17 @@ opts = sorted(opts, key=lambda u: (u not in investigated,
 
 def fmt_unit(u):
     row = _fi.loc[u]
-    tag = " · WO ready" if u in investigated else ""
+    tag = " · 📋 work order ready" if u in investigated else ""
     return (f"Engine {u} — {row['status']} · "
-            f"RUL {row['gbm_rul']:.0f} cycles{tag}")
+            f"~{row['gbm_rul']:.0f} flights left{tag}")
 
 
 unit = st.selectbox("🎯 Active engine — pick an asset; every panel "
-                    "below follows it", opts, format_func=fmt_unit)
+                    "below follows it", opts, format_func=fmt_unit,
+                    help="Choosing an engine only changes what you see — "
+                         "the four cards, the charts and the work-order "
+                         "panel all follow it. Engines marked 📋 come "
+                         "with a drafted work order to read.")
 r = ev[ev["unit"] == unit].iloc[0]
 _row = _fi.loc[unit]
 _wo_file = wo_dir / f"unit_{unit}.json"
@@ -152,10 +156,11 @@ with tab_fleet:
         st.subheader("Fleet — ranked by predicted RUL")
         show = fleet[["unit", "status", "gbm_rul", "p10_conf",
                       "p90_conf", "max_drift"]].copy()
-        show.columns = ["unit", "status", "RUL (pred)", "p10", "p90",
-                        "max drift σ"]
-        show["has work order"] = show["unit"].apply(
-            lambda u: "📋" if u in investigated else "")
+        show.columns = ["engine", "status", "predicted life (cycles)",
+                        "worst case (p10)", "best case (p90)",
+                        "strongest drift (σ)"]
+        show["work order"] = show["engine"].apply(
+            lambda u: "📋 drafted" if u in investigated else "—")
         st.dataframe(show, hide_index=True, height=340,
                      use_container_width=True)
 
