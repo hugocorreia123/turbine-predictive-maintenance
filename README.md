@@ -6,6 +6,8 @@
 
 **[Live demo](https://turbine-predictive-maintenance.streamlit.app)** · **[Code](https://github.com/hugocorreia123/turbine-predictive-maintenance)**
 
+The demo is an **asset console**: pick an engine and its remaining life, confidence window, sensor drift and work order follow instantly — with a plain-language tour, one-sentence metric explanations, and an honesty box built into the interface.
+
 ---
 
 ## Results
