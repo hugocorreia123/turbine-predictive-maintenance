@@ -88,8 +88,11 @@ def fmt_unit(u):
             f"~{row['gbm_rul']:.0f} flights left{tag}")
 
 
+_wo_default = next((i for i, u in enumerate(opts)
+                   if u in investigated), 0)
 unit = st.selectbox("🎯 Active engine — pick an asset; every panel "
-                    "below follows it", opts, format_func=fmt_unit,
+                    "below follows it", opts, index=_wo_default,
+                    format_func=fmt_unit,
                     help="Choosing an engine only changes what you see — "
                          "the four cards, the charts and the work-order "
                          "panel all follow it. Engines marked 📋 come "
@@ -137,10 +140,12 @@ def engine_vitals(r, row, rank, total, wo):
                        f"{v.get('confidence', 0):.2f}, waiting for the "
                        "engineer's signature. Never auto-scheduled.")
         else:
-            st.metric("Work order", "No draft yet")
-            st.caption("**Means:** no draft for this engine in the demo "
-                       "set — pick one marked 'WO ready' in the "
-                       "selector above.")
+            st.metric("Work order", "Pick a 📋 engine")
+            st.caption(f"**Means:** the demo ships drafted work orders "
+                       f"for {len(investigated)} engines — this isn't "
+                       "one. Open the selector and choose any engine "
+                       "tagged **📋 work order ready** to read the "
+                       "agent's draft.")
 
 
 engine_vitals(r, _row, int(_row["risk_rank"]), len(fleet), _wo)
