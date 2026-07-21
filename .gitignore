@@ -9,3 +9,4 @@ nohup.out
 ckpt/
 .env
 /work_orders/
+uv.lock
