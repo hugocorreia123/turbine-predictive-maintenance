@@ -104,17 +104,18 @@ def engine_vitals(r, row, rank, total, wo):
     """The selected engine's vitals — these change with the case above."""
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("Remaining life", f"{r['gbm_rul']:.0f} cycles")
-        st.caption(f"**Means:** about {r['gbm_rul']:.0f} flights left "
-                   f"before failure. Status {row['status']} — risk rank "
-                   f"#{rank} of {total} in the fleet. The calendar "
-                   "doesn't know this; the sensors do.")
+        st.metric("Remaining life", f"{r['p50']:.0f} cycles")
+        st.caption(f"**Means:** about {r['p50']:.0f} flights left before "
+                   f"failure — the calibrated best estimate (p50). Status "
+                   f"{row['status']} — risk rank #{rank} of {total} in the "
+                   "fleet. The calendar doesn't know this; the sensors do.")
     with c2:
         st.metric("80% confidence window",
                   f"{r['p10_conf']:.0f}–{r['p90_conf']:.0f}")
-        st.caption("**Means:** the failure most likely lands in this "
-                   "range of cycles — calibrated on held-out engines, "
-                   "so 80% really behaves like 80%.")
+        st.caption(f"**Means:** the failure most likely lands in this "
+                   f"range of cycles, with the {r['p50']:.0f}-cycle "
+                   "estimate sitting inside it — calibrated on held-out "
+                   "engines, so 80% really behaves like 80%.")
     with c3:
         trends = sorted([(d.replace("_drift_sigma", ""), float(r[d]))
                          for d in DRIFT], key=lambda x: -abs(x[1]))
