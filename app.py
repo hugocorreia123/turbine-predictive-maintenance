@@ -250,32 +250,38 @@ with tab_fleet:
                     "tagged 📋 have one instantly — or let the live agent "
                     "draft this one now.")
             if st.button("🔧 Draft a work order (live agent)"):
-                import sys
-                sys.path.insert(0, "scripts")
-                from copilot import investigate as _draft
                 wo, err = None, None
-                with st.spinner("agent diagnosing ... (up to 3 tries)"):
-                    for _try in range(3):
-                        try:
-                            wo = _draft(int(unit))
-                            if isinstance(wo.get("verdict"), dict) and \
-                               "parse_error" not in wo["verdict"]:
-                                break
-                            err = "model returned an unparseable draft"
-                        except Exception as e:
-                            err = f"{type(e).__name__}: {e}"
-                if wo and "parse_error" not in wo.get("verdict", {}):
+                with st.spinner("agent diagnosing this engine — "
+                                "first run loads the model, ~15-40s "
+                                "(up to 3 tries) ..."):
+                    try:
+                        import sys
+                        sys.path.insert(0, "scripts")
+                        from copilot import investigate as _draft
+                        for _try in range(3):
+                            try:
+                                wo = _draft(int(unit))
+                                if isinstance(wo.get("verdict"), dict) and \
+                                   "parse_error" not in wo["verdict"]:
+                                    break
+                                err = "model returned an unparseable draft"
+                                wo = None
+                            except Exception as e:
+                                err = f"{type(e).__name__}: {e}"
+                    except Exception as e:
+                        err = f"setup failed — {type(e).__name__}: {e}"
+                if wo:
                     wo_dir.mkdir(exist_ok=True)
                     wo_path.write_text(json.dumps(wo, indent=2))
                     st.rerun()
                 else:
                     st.error("The live agent couldn't complete a clean "
-                             "draft in 3 tries — a known quirk of the "
-                             "model's tool-calling, not the pipeline. "
-                             "Press again, or open an engine tagged 📋 "
-                             "for an instant example.")
+                             "draft this time — usually the model's "
+                             "tool-calling on the free tier, not the "
+                             "pipeline. Press the button again, or open "
+                             "an engine tagged 📋 for an instant example.")
                     with st.expander("Technical detail"):
-                        st.write(err or "unparseable model output")
+                        st.write(err or "unknown — no draft produced")
         else:
             st.info("No work order drafted for this engine in the demo "
                     "set. Engines tagged 📋 in the fleet table have one "
