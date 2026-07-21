@@ -9,6 +9,7 @@ Run:  uv run streamlit run app.py
 """
 
 import json
+import os
 import re
 from pathlib import Path
 
@@ -244,9 +245,24 @@ with tab_fleet:
                 "Draft only. Measured groundedness is imperfect "
                 "(see Results) — an engineer reviews every work "
                 "order before scheduling.", icon="⚠️")
+        elif os.environ.get("GROQ_API_KEY"):
+            st.info("No pre-drafted work order for this engine. Engines "
+                    "tagged 📋 have one instantly — or let the live agent "
+                    "draft this one now.")
+            if st.button("🔧 Draft a work order (live agent)"):
+                with st.spinner("agent diagnosing ..."):
+                    import sys
+                    sys.path.insert(0, "scripts")
+                    from copilot import investigate as _draft
+                    wo = _draft(int(unit))
+                    wo_dir.mkdir(exist_ok=True)
+                    wo_path.write_text(json.dumps(wo, indent=2))
+                    st.rerun()
         else:
             st.info("No work order drafted for this engine in the demo "
-                    "set. Engines with 📋 in the fleet table have one.")
+                    "set. Engines tagged 📋 in the fleet table have one "
+                    "instantly — or set a **GROQ_API_KEY** to let the "
+                    "live agent draft any engine on demand.")
 
 # ------------------------------------------------------------------
 with tab_results:

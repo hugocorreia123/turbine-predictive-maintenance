@@ -46,18 +46,20 @@ from sklearn.metrics.pairwise import cosine_similarity
 load_dotenv()
 assert os.environ.get("GROQ_API_KEY"), "GROQ_API_KEY missing (.env)"
 
-MODEL = "qwen/qwen3-32b"
+MODEL = "openai/gpt-oss-120b"
 ALERT_T = 35   # Phase 4 chosen operating point
 SENSOR_COLS = None  # filled at load
 
-ev = pd.read_parquet("data/processed/engine_evidence.parquet").set_index(
-    "unit")
+_ev_path = (Path("data/processed/engine_evidence.parquet")
+            if Path("data/processed/engine_evidence.parquet").exists()
+            else Path("app_data/engine_evidence.parquet"))
+ev = pd.read_parquet(_ev_path).set_index("unit")
 DRIFT = [c for c in ev.columns if c.endswith("_drift_sigma")]
 SLOPE = [c for c in ev.columns if c.endswith("_slope_sigma")]
 
 # ---------------- corpus: sectioned + TF-IDF ----------------
 sections = []
-for f in sorted(Path("docs_corpus").glob("*.md")):
+for f in sorted(Path("docs_corpus").glob("*.md")):  # shipped in repo
     text = f.read_text()
     doc_title = text.splitlines()[0].lstrip("# ").strip()
     doc_id = doc_title.split(" — ")[0]  # e.g. DOC-2
